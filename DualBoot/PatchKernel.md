@@ -36,7 +36,7 @@
   ```
   + You will get something like this:
   ```bash
-  /sdcard/dualboot# magiskboot unpack boot.img
+  /sdcard/dualboot# /data/adb/magisk/magiskboot unpack boot.img
   Parsing boot image: [boot.img]
   HEADER_VER      [1]
   KERNEL_SZ       [41576325]
@@ -55,12 +55,61 @@
   /sdcard/dualboot# ls
   boot  kernel  kernel_dtb  ramdisk.cpio
   ```
-
+::: TIP
+Please do not patch a patched kernel.
+:::
 - Apply patch with dualboot kernel patcher.
   + Assume the patcher and shellcodes and config you downloaded above was saved at `/sdcard/Download/`
-  + Unpack these zips:
+  + Unpack these zips with these cmds, or extract in file manager.
   ```
-  unzip /sdcard/Download/
+  unzip /sdcard/Download/Shellcodes.zip
+  unzip /sdcard/Download/DualBootKernelPatcher-Linux-arm64.zip
+  unzip /sdcard/Download/Config.zip
+  ```
+  + Give permission to dualboot kernel patcher
+  ```bash
+  mv DualBootKernelPatcher ~/
+  chmod +x ~/DualBootKernelPatcher
+  ```
+  + Patch kernel with a shellcode.
+  ```bash
+  ./DualBootKernelPatcher /sdcard/dualboot/patched_kernel <Path-to>/SM8150_EFI.fd /sdcard/dualboot/kernel <Path-To>/Config/DualBoot.Sm8150.cfg <Path-To>/ShellCode.XXXX.bin
+  ```
+  + Repack boot image with patched kernel
+  ```bash
+  cd /sdcard/dualboot/
+  mv patched_kernel kernel
+  /data/adb/magisk/magiskboot repack boot.img
+  ```
+  + You will get a file named `new-boot.img` if magiskboot success.
+
+- Test with fastboot.
+  + Send `new-boot.img` to your computer:
+  ```pwsh
+  adb pull /sdcard/dualboot/new-boot.img
+  ```
+  + Reboot to fastboot
+  ```pwsh
+  adb reboot bootloader
+  ```
+  + Ensure OS-switch is on the correct state before it loading. Like magnet shell or tri-state key.
+  + Try load boot image once.
+  ```pwsh
+  fastboot boot new-boot.img
+  ```
+  + See if the device is entering a correct os.
+
+- Flash boot image into disk
+  + If everything goes well and boot image was backuped. You can flash boot image into disk now. Then no fastboot command is required when using dualboot.
+  + Flash boot:
+  ```pwsh
+  fastboot flash boot new-boot.img
+  ```
+- Recover original boot image:
+  + If you want to remove dualboot, flash your backuped boot image.
+  ```pwsh
+  fastboot flash boot.img
   ```
 
-- 
+## Remove dualboot
+Run `DualBootPatchRemover` on the patched kernel and rebuild the boot image. After flashing to boot parition the dualboot feature will disappear.
