@@ -2,7 +2,7 @@
 > In Windows, you may want to *hide* some partitions
 > in Windows Disk Manager to prevent damage from Windows,
 > this guide will tell you how to change gpt partition's
-> attribute to mark a  partition as **system** partition.  
+> attribute to mark a partition as **system** partition.  
 
 :::warning
 Please **carefully** read each step and comments.  
@@ -105,7 +105,3 @@ a # Change partition attribute
 # 60 (read-only)
 ```
 - Set system bit for all partitions in a lun can make the lun invisible in Windows device manager.
-
-## In the last
-This guide only help you interact with tools in CLI.  
-The tool may support run in script, why not have a try with running these commands in script?

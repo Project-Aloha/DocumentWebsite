@@ -42,6 +42,7 @@ function sidebarDocs(): DefaultTheme.SidebarItem[] {
         { text: 'Install Drivers', link: '/InstallationGuides/InstallDrivers'},
         { text: 'Enter UMS Mode', link: '/InstallationGuides/EnterUMS'},
         { text: 'Hide Partition', link: '/InstallationGuides/SetGPTPartitionSystemAttr.md'},
+        { text: '24H2 GPT Errata', link: '/InstallationGuides/GPTErrata.md'},
       ]
     },
     {
