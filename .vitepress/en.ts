@@ -30,6 +30,7 @@ function sidebarDocs(): DefaultTheme.SidebarItem[] {
       items: [
         { text: 'Project-Aloha', link: '/Introduction/organization'},
         { text: 'mu_aloha_platforms', link: '/Introduction/mu_aloha_platforms'},
+        { text: 'CrDK', link: '/Introduction/CrDK'},
         { text: 'UEFI Porting Status', link: '/PortingStatus/PortingStatus'}
       ]
     },
