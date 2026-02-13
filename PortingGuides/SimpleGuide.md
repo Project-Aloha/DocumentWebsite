@@ -1,6 +1,7 @@
 # mu_aloha_platforms Porting Guide. 
 :::danger
  **⚠ Do not try it on Google devices, Sony devices or Samsung devices.**
+ **⚠ Do not use any other devices' firmware even if same vendor or similar hw**
 :::
 
 > ### The Guide has 4 parts.
@@ -9,72 +10,38 @@
 >> 2. Try to boot windows and test UFS & USB.
 >> 3. Patch binaries.
 ___
-## **Part 0.** Introduce some directories and files.
+## **Part 0.** Introduce directories and files.
   - We only need to know few directories and files under `Platform/SurfaceDuo1Pkg/`
     ```bash
-    ~/mu-msmnile$ tree Platforms/SurfaceDuo1Pkg/ -L 2 -d
+    ~/<repo_root>$ tree Platforms/SurfaceDuo1Pkg/ -L 2 -d
     Platforms/SurfaceDuo1Pkg/
-    |-- AcpiTables
-    |   |-- 8150
-    |   |-- CustomizedACPI
-    |   `-- Include
-    |-- Device
-    |   |-- asus-I001DC
-    |   |-- kakao-pine
-    |   |-- lg-alphaplus
-    |   |-- lg-betalm
-    |   |-- lg-flashlmdd
-    |   |-- lg-mh2lm
-    |   |-- lg-mh2lm5g
-    |   |-- meizu-m928q
-    |   |-- nubia-tp1803
-    |   |-- oneplus-guacamole
-    |   |-- oneplus-hotdog
-    |   |-- samsung-beyond1qlte
-    |   |-- xiaomi-andromeda
-    |   |-- xiaomi-cepheus
-    |   |-- xiaomi-hercules
-    |   |-- xiaomi-nabu
-    |   |-- xiaomi-raphael
-    |   `-- xiaomi-vayu
-    |-- Driver
-    |   |-- GpioButtons
-    |   `-- KernelErrataPatcher
-    |-- FdtBlob
-    |-- Include
-    |   |-- Configuration
-    |   |-- Library
-    |   `-- Resources
-    |-- Library
-    |   |-- MemoryInitPeiLib
-    |   |-- MsPlatformDevicesLib
-    |   |-- PlatformPeiLib
-    |   |-- PlatformPrePiLib
-    |   |-- PlatformThemeLib
-    |   `-- RFSProtectionLib
-    |-- PatchedBinaries
-    `-- PythonLibs
+    ├── Device
+    │   ├── asus-I001DC
+    |   |   ├── ACPI
+    |   |   ├── Binaries
+    |   |   ├── DeviceTreeBlob
+    |   |   │   ├── Android
+    |   |   │   └── Linux
+    |   |   ├── Library
+    |   |   │   ├── PlatformConfigurationMapLib
+    |   |   │   └── PlatformMemoryMapLib
+    |   |   └── PatchedBinaries
+    │   └── xiaomi-vayu
+    ├── Include
+    │   ├── IndustryStandard
+    │   └── Resources
+    └── PythonLibs
     ```
-    - **AcpiTables/**
-      * *Stores ACPI tables.*
     - **Device/**
-      * *Stores each device's specific binaries and configurations.*
-      * *The subfolder's name should be `brand-codename`.*
-    - **Driver/**
-      * *Stores uefi drivers.*
-    - **FdtBlob/**
-      * *Contains SurfaceDuo's flat device tree blob.*
+      * Stores each device's specific binaries and configurations.
+      * The subfolder's name must be `brand-codename`.
     - **Include/**
-      * *Contains C headers.*
-    - **Library/**
-      * *Contains libs the drivers need.*
-    - **PatchedBinaries/**
-      * *Contains patched binaries for SurfaceDuo1.*
+      * Contains C headers and ACPI.inc
     - **PythonLibs/**
-      * *Stores python libs.*
+      * Stores python libs like android boot pack configuration.
   - Let's take a closer look at `Device/nubia-tp1803`. 
     ```bash
-    ~/mu-msmnile/Platforms/SurfaceDuo1Pkg/Device$ tree -L 1  nubia-tp1803/
+    ~/<repo_root>/Platforms/SurfaceDuo1Pkg/Device$ tree -L 1  nubia-tp1803/
     ├── ACPI
     ├── APRIORI.inc
     ├── Binaries
@@ -87,37 +54,39 @@ ___
     └── PcdsFixedAtBuild.dsc.inc
     ```
     - **ACPI/**
-      * *Stores device's dsdt table.*
+      * Stores this device's dsdt table.
     - **Binaries/**
-      * *Stores device's firmware binaries.*
+      * Stores this device's firmware binaries.
     - **PatchedBinaries/**
-      * *As its name, it stores patched binaries for the device.*
+      * Stores patched binaries for this device.
     - **Library/**
-      * *Put device specific Library*
+      * Put device specific Library like memory map and configuration map.
     - **DeviceTreeBlob/**
-      * *Put device tree blob*
-        - *In subdir `Linux` stores mainline linux dtb, file name must be `linux-codename.dtb`*
-        - *In subdir `Android` store Android dtb, file name must be `android-codename.dtb`*
+      * Put device tree blob
+        - In subdir `Linux` stores mainline linux dtb, file name must be `linux-codename.dtb`
+        - In subdir `Android` store Android dtb, file name must be `android-codename.dtb`
     - **APRIORI.inc**
-      * *Load Order of Dxe*
-      * *Included by SurfaceDuo1.fdf*
-    - **DXE.dsc**
-      * *Declare Drivers*
-      * *Included by SurfaceDuo1.fdf*
+      * Load Order of Drivers.
+      * Included by SurfaceDuo1.fdf
+    - **DXE.inc**
+      * Declare Drivers in FD.
+      * Drivers in this file must also be defined in dsc.
+      * Included by SurfaceDuo1.fdf
     - **DXE.dsc.inc**
-      * *Declare Drivers*
-      * *Included by SurfaceDuo1.dsc*
+      * Declare Drivers
+      * Driver will not be included in output fd if it is not defined in fdf.
+      * Included by SurfaceDuo1.dsc
     - **Defines.dsc.inc**
-      * *Macros for special use.*
-      * *For detailed about Macros, please read [DefinesGuidance.md](DefinesGuidance.md)*
+      * Macros for special use.
+      * For detailed about Macros, please read [DefinesGuidance.md](DefinesGuidance.md)
     - **PcdsFixedAtBuild.dsc.inc**
-      * *Included by SurfaceDuo1.dsc.*
-      * *Stores device specific pcds. (e.g Screen resolution)*
+      * Included by SurfaceDuo1.dsc.
+      * Stores device specific pcds. (e.g Screen resolution)
 ___
 ## **Part 1.** Early porting and tests.
   - For example, porting uefi for meizu 16T.
     1. Search for its code name: m928q.
-    2. Copy `oneplus-guacamole/` to `meizu-m928q/`. (brand-codename).
+    2. Copy `oneplus-guacamole/` folder to `meizu-m928q/`. (brand-codename).
     3. Remove all files under `meizu-m928q/Binaries` & `meizu-m928q/PatchedBinaries.`
     4. Extract files from your device's xbl and put them under Binaries.
         + *Download and compile [UefiReader](https://github.com/WOA-Project/UEFIReader)*
@@ -143,19 +112,19 @@ ___
           ```
         + *So you have to edit `Raw Files` part in `${brand-codename}/DXE.inc` and add SimpleTextInOutSerial in `${brand-codename}/DXE.inc` and `${brand-codename}/DXE.dsc.inc`*
         + *If SimpleTextInOutSerial is also set in Binaries/APRIORI.inc, you need to add it into `${brand-codename}/APRIORI.inc`*
-    6. Enable MLVM in `Defines.dsc.inc` (FALSE -> TRUE)
+    6. Enable MLVM in `Defines.dsc.inc` (FALSE -> TRUE) if needed.
     7. Edit resolution in `PcdFixedAtBuild.dsc.inc`.
     8. Patch your device's dxe and put them under `PatchedBinaries/`.
-    9. Replace `android-guacamole.dtb` with `android-m928q.dtb` (you can find your device's dtb in `/sys/firmware/fdt`, or see [Additions](#additions))
-    10. Replace `linux-guacamole.dtb` with `linux-m928q.dtb`.(if you do not have, create a dummy one by `touch linux-m928q.dtb`)
-    11. Build it.
+    9. Replace `android-guacamole.dtb` with `android-m928q.dtb`. See [Additions](#additions) to get android DTB of your device.
+    10. Replace `linux-guacamole.dtb` with `linux-m928q.dtb`.(if you do not have, create a dummy one with `touch linux-m928q.dtb`)
+    11. Build it. See uefi readme. **REMEMBER TO ENABLE DEBUG BUILD AND SCREEN DEBUG**
     12. Test it.
         + *Connect your phone to your computer and execute it on your computer.*
           ```bash
           adb reboot bootloader
           fastboot boot Build/meizu-m928q/meizu-m928q.img
           ```
-  - Your device will enter UEFI Shell if porting success.
+  - Your device will enter FFU Flash App which has a QRCode if porting success.
   - What if it stacks, reboots or crashes ?
     * See part 3 and patch your device's firmware binaries, or contact us.
 ___
@@ -188,7 +157,7 @@ ___
         - Example: 
             * UFSDxe.efi (nabu):
             ```bash
-            ~/mu-msmnile/Platforms/SurfaceDuo1Pkg/Device/xiaomi-nabu$ diff a.txt b.txt 
+            ~/<repo_root>/Platforms/SurfaceDuo1Pkg/Device/xiaomi-nabu$ diff a.txt b.txt 
             383c383
             < 000025f0  00 00 80 52 c0 03 5f d6  fd 7b 03 a9 fd c3 00 91  |...R.._..{......|
             ---

@@ -1,9 +1,10 @@
-# Find Protocol Addresses For Kailua
+# Find Protocol Addresses
 :::warning WARNING
-This page is deprecated now, new uefi supports find address at run time.
+This page is deprecated now, new uefi supports find address at runtime.
+You only need to read this page when the online locator in uefi does not work.
 :::
 
-On Sm8550, many uefi drivers need ***scheduler*** protocol and ***xbldt*** protocol.  
+On Sm8550 and newer platforms, many uefi drivers need ***scheduler*** protocol and ***xbldt*** protocol.  
 Our solution is to reserve the original *UEFI FD* region in XBL's memory map, find the addresses in decompile tool, then provide these protocols again.
 ___
 
@@ -37,12 +38,12 @@ ___
         - Waiting Decompile finish.
         - Press `Alt+B`.
         - Type `E8 E1 06 3A F6 61 EB 11 BB ED 4B 47 6E 2F F6 A7`, Click **OK**.
-            <img src="/PortingGuides/Resources/FindProtocolAddressesForKailua/IDABinarySearch.png" width=80%/>
+            <img src="/PortingGuides/Resources/FindProtocolAddresses/IDABinarySearch.png" width=80%/>
         - Double Click the only result, the tool will jump to IDA `View-A`.
         - Click the label (e.g. *unk_A703B290*), then press `x`, Click **OK**.
-            <img src="/PortingGuides/Resources/FindProtocolAddressesForKailua/IDAXrefs.png" width=80%/>
+            <img src="/PortingGuides/Resources/FindProtocolAddresses/IDAXrefs.png" width=80%/>
         - Select the instruction that 2 instractions before *ADRL X0,unk_A703B290*(it is *ADRL X8, unk_A703B0C8* here.).
-            <img src="/PortingGuides/Resources/FindProtocolAddressesForKailua/IDAViewASecDTB.png" width=80%/>
+            <img src="/PortingGuides/Resources/FindProtocolAddresses/IDAViewASecDTB.png" width=80%/>
         - Copy *A703B0C8* to your note book. This is XBL DTB Protocol Address.
         - Press `Alt+B`.
         - Type `8D BD C2 8E D7 56 EF 49 87 96 63 17 78 F8 EB F8` and Click **OK**.
@@ -50,7 +51,7 @@ ___
 
   4. Fill address in your device's PcdsFixedAtBuild.dsc.inc.
       - Here gives an example.  
-        <img src="/PortingGuides/Resources/FindProtocolAddressesForKailua/PcdsFixedAtBuildSample.png" width=80%/>
+        <img src="/PortingGuides/Resources/FindProtocolAddresses/PcdsFixedAtBuildSample.png" width=80%/>
 
 ## Notice & Issues
   - Fix address here may cause some issues.

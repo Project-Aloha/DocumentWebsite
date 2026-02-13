@@ -58,7 +58,8 @@ function sidebarDocs(): DefaultTheme.SidebarItem[] {
       items: [
         { text: 'UEFI Porting Guide', link: '/PortingGuides/SimpleGuide'},
         { text: 'Definitions', link: '/PortingGuides/DefinesGuidance'},
-        { text: '[Deprecated]Find Protocol Addresses For Kailua', link: '/PortingGuides/FindProtocolAddressesForKailua'},
+        { text: 'Debugging', link: '/PortingGuides/Debug'},
+        { text: '[Deprecated]Find Protocol Addresses', link: '/PortingGuides/FindProtocolAddresses'},
       ]
     },
     {

@@ -46,7 +46,7 @@ function sidebarDocs(): DefaultTheme.SidebarItem[] {
       items: [
         { text: 'Project-Aloha', link: '/Introduction/organization'},
         { text: 'mu_aloha_platforms', link: '/Introduction/mu_aloha_platforms'},
-        { text: 'CrDK', link: '/Introduction/CrDK'},
+        { text: 'Crane开发套件', link: '/Introduction/CrDK'},
         { text: '移植状态', link: '/PortingStatus/PortingStatus'}
       ]
     },
@@ -62,7 +62,8 @@ function sidebarDocs(): DefaultTheme.SidebarItem[] {
     {
       text: 'UEFI移植',
       items: [
-        { text: '简易移植教程', link: '/PortingGuides/SimpleGuide'}
+        { text: '设备移植简述', link: '/PortingGuides/SimpleGuide'},
+        { text: '调试', link: '/PortingGuides/Debug'}
       ]
     },
     {

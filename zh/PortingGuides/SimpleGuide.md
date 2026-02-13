@@ -1,92 +1,104 @@
-# mu_aloha_platforms 移植向导. 
+# mu_aloha_platforms 移植向导。
 :::danger
-  **⚠ 建议不要在谷歌、索尼和三星设备上尝试。**
+ **⚠ 请勿在谷歌设备、索尼设备或三星设备上尝试。**
+ **⚠ 请勿使用其他设备的固件，即使是相同厂商或类似硬件**
 :::
 
-> ### 此向导分为4步。
+> ### 此向导分为4部分。
 >> 0. 介绍一些目录和文件。
 >> 1. 初步移植和测试。
 >> 2. 尝试启动Windows并测试UFS和USB。
->> 3. 补丁二进制驱动文件.
+>> 3. 补丁二进制文件。
 ___
-## **步骤0.** 介绍一些目录和文件
-  - 我们只需要了解`Platform/SurfaceDuo1Pkg/`目录下的一些目录和文件。
+## **第0部分。** 介绍目录和文件。
+  - 我们只需要了解 `Platform/SurfaceDuo1Pkg/` 下的几个目录和文件。
     ```bash
-    ~/mu-msmnile$ tree Platforms/SurfaceDuo1Pkg/ -L 2 -d
+    ~/<repo_root>$ tree Platforms/SurfaceDuo1Pkg/ -L 2 -d
     Platforms/SurfaceDuo1Pkg/
-    |-- AcpiTables                    # 存放ACPI tables
-    |   |-- 8150
-    |   |-- CustomizedACPI
-    |   `-- Include
-    |-- Device                        # 存放每个设备独有的驱动/库和配置。子文件夹的名字必须是`品牌-设备代号`
-    |   |-- asus-I001DC
-    |   |-- kakao-pine
-    |   |-- lg-alphaplus
-    |   |-- lg-betalm
-    |   |-- lg-flashlmdd
-    |   |-- lg-mh2lm
-    |   |-- lg-mh2lm5g
-    |   |-- meizu-m928q
-    |   |-- nubia-tp1803
-    |   |-- oneplus-guacamole
-    |   |-- oneplus-hotdog
-    |   |-- samsung-beyond1qlte
-    |   |-- xiaomi-andromeda
-    |   |-- xiaomi-cepheus
-    |   |-- xiaomi-hercules
-    |   |-- xiaomi-nabu
-    |   |-- xiaomi-raphael
-    |   `-- xiaomi-vayu
-    |-- Driver                        # 存放UEFI驱动
-    |   |-- GpioButtons
-    |   `-- KernelErrataPatcher
-    |-- FdtBlob                       # 包含SurfaceDuo的扁平设备树文件
-    |-- Include                       # 包含C语言头文件
-    |   |-- Configuration
-    |   |-- Library
-    |   `-- Resources
-    |-- Library                       # 包含驱动所需的libs。
-    |   |-- MemoryInitPeiLib
-    |   |-- MsPlatformDevicesLib
-    |   |-- PlatformPeiLib
-    |   |-- PlatformPrePiLib
-    |   |-- PlatformThemeLib
-    |   `-- RFSProtectionLib
-    |-- PatchedBinaries               # 包含SurfaceDuo1的补丁过后的驱动文件
-    `-- PythonLibs                    # 存放一些Python库
+    ├── Device
+    │   ├── asus-I001DC
+    |   |   ├── ACPI
+    |   |   ├── Binaries
+    |   |   ├── DeviceTreeBlob
+    |   |   │   ├── Android
+    |   |   │   └── Linux
+    |   |   ├── Library
+    |   |   │   ├── PlatformConfigurationMapLib
+    |   |   │   └── PlatformMemoryMapLib
+    |   |   └── PatchedBinaries
+    │   └── xiaomi-vayu
+    ├── Include
+    │   ├── IndustryStandard
+    │   └── Resources
+    └── PythonLibs
     ```
-
-  - 近距离观察一下`Device/nubia-tp1803`。
+    - **Device/**
+      * 存储每个设备的特定二进制文件和配置。
+      * 子文件夹名称必须是 `brand-codename`。
+    - **Include/**
+      * 包含C头文件和ACPI.inc
+    - **PythonLibs/**
+      * 存储python库，如android boot pack配置。
+  - 让我们更仔细地看看 `Device/nubia-tp1803`。
     ```bash
-    ~/mu-msmnile/Platforms/SurfaceDuo1Pkg/Device$ tree -L 1  nubia-tp1803/
-    ├── ACPI                          # 存放设备的dsdt table
-    ├── APRIORI.inc                   # Dxe的加载顺序。包含在SurfaceDuo1.fdf内
-    ├── Binaries                      # 存放设备的firmware binaries
-    ├── Defines.dsc.inc               # 特殊用途的宏指令。详情请参阅[DefinesGuidance.md](DefinesGuidance.md)
-    ├── DeviceTreeBlob                # 存放设备的tree blob。
-    │                                    # 这里你需要注意的是：
-    │                                    # 子文件夹`Linux`存放主线Linux dtb，文件名必须是`linux-设备代号.dtb`
-    │                                    # 子文件夹`Android`存放安卓dtb，文件名必须是`android-设备代号.dtb`
-    ├── DXE.dsc.inc                   # 声明驱动。该文件被包含于SurfaceDuo1.dsc中
-    ├── DXE.inc                       # 声明驱动。该文件被包含于SurfaceDuo1.fdf中
-    ├── Library                       # 存放只适用于该设备的库
-    ├── PatchedBinaries               # 存放设备的补丁过后的驱动文件
-    └── PcdsFixedAtBuild.dsc.inc      # 包含在SurfaceDuo1.fdf内。存放设备特殊的pcds（例如Screen resolution）
+    ~/<repo_root>/Platforms/SurfaceDuo1Pkg/Device$ tree -L 1  nubia-tp1803/
+    ├── ACPI
+    ├── APRIORI.inc
+    ├── Binaries
+    ├── Defines.dsc.inc
+    ├── DeviceTreeBlob
+    ├── DXE.dsc.inc
+    ├── DXE.inc
+    ├── Library
+    ├── PatchedBinaries
+    └── PcdsFixedAtBuild.dsc.inc
     ```
-
+    - **ACPI/**
+      * 存储此设备的dsdt表。
+    - **Binaries/**
+      * 存储此设备的固件二进制文件。
+    - **PatchedBinaries/**
+      * 存储此设备的补丁二进制文件。
+    - **Library/**
+      * 放置设备特定的库，如内存映射和配置映射。
+    - **DeviceTreeBlob/**
+      * 放置设备树blob
+        - 子目录 `Linux` 存储主线linux dtb，文件名称必须是 `linux-codename.dtb`
+        - 子目录 `Android` 存储Android dtb，文件名称必须是 `android-codename.dtb`
+    - **APRIORI.inc**
+      * 驱动的加载顺序。
+      * 由SurfaceDuo1.fdf包含
+    - **DXE.inc**
+      * 在FD中声明驱动。
+      * 此文件中的驱动也必须在dsc中定义。
+      * 由SurfaceDuo1.fdf包含
+    - **DXE.dsc.inc**
+      * 声明驱动
+      * 如果未在fdf中定义，驱动将不会包含在输出fd中。
+      * 由SurfaceDuo1.dsc包含
+    - **Defines.dsc.inc**
+      * 特殊用途的宏。
+      * 有关宏的详细信息，请阅读 [DefinesGuidance.md](DefinesGuidance.md)
+    - **PcdsFixedAtBuild.dsc.inc**
+      * 由SurfaceDuo1.dsc包含。
+      * 存储设备特定的pcds。（例如屏幕分辨率）
 ___
-## **步骤1.** 初步移植和测试
-  - 我们以魅族16T移植UEFI为例。
-    1. 获得设备代号: m928q.
-    2. 复制`oneplus-guacamole/`并重命名为`meizu-m928q/`. (品牌-设备代号).
-    3. 删除`meizu-m928q/Binaries`和`meizu-m928q/PatchedBinaries`下的所有文件.
-    4. 提取设备xbl文件并放置在Binaries文件夹.
-        + *下载并完成[UefiReader](https://github.com/WOA-Project/UEFIReader)*
-        + *将设备连接电脑，adb命令提取xbl分区*
-        + *UefiReader.exe <xbl.img路径> <输出文件夹>*
-        + *将输出文件放到`meizu-m928q/Binaries`.*
-    5. 编辑 meizu-m928q文件夹中的`DXE.inc`, `APRIORI.inc`, `DXE.dsc.inc`.
-        + *使用`diff`对比不同之处*
+## **第1部分。** 初步移植和测试。
+  - 例如，为meizu 16T移植uefi。
+    1. 搜索其代码名称：m928q。
+    2. 复制 `oneplus-guacamole/` 文件夹到 `meizu-m928q/`。（brand-codename）。
+    3. 删除 `meizu-m928q/Binaries` 和 `meizu-m928q/PatchedBinaries` 下的所有文件。
+    4. 从设备的xbl提取文件并放置在Binaries下。
+        + *下载并编译 [UefiReader](https://github.com/WOA-Project/UEFIReader)*
+        + *将手机连接到电脑并在电脑上执行命令。*
+          ```bash
+          adb shell su -c "dd if=/dev/block/by-name/xbl_a of=/sdcard/xbl.img"
+          adb pull /sdcard/xbl.img .
+          ```
+        + *执行 UefiReader.exe \<Path-to-xbl.img\> \<Path-to-output-folder\>*
+        + *将输出放入 `meizu-m928q/Binaries`。*
+    5. 编辑 `${brand-codename}/DXE.inc`，`${brand-codename}/APRIORI.inc`，`${brand-codename}/DXE.dsc.inc`。
+        + *通过 `diff` 查看差异*
           ```bash
           $ diff meizu-m928q/Binaries/DXE.inc oneplus-guacamole/Binaries/DXE.inc 
           23d22
@@ -95,52 +107,57 @@ ___
           < FILE FREEFORM = A91D838E-A5FA-4138-825D-455E23030795 {
           <     SECTION UI = "logo2_ChargingMode.bmp"
           <     SECTION RAW = RawFiles/logo2_ChargingMode.bmp
-          < }
+          }
             ...
           ```
-        + *所以你需要编辑`DXE.inc`中的`Raw Files`部分，并在`DXE.inc`和`DXE.dsc.inc`中的添加SimpleTextInOutSerial.inf*
-        + *如果SimpleTextInOutSerial在Binaries/APRIORI.inc中也有设置，你需要把它添加进`APRIORI.inc`*
-    6. 启用`Defines.dsc.inc`中的MLVM(FALSE改为TRUE)
-    7. 编辑`PcdFixedAtBuild.dsc.inc`中的屏幕分辨率.
-    8. Patch你的设备的dxe并放置在`PatchedBinaries/`文件夹下.
-    9. 用`android-m928q.dtb`替换`android-guacamole.dtb`(你可以在`/sys/firmware/fdt`找到dtb, 或参照[补充说明](#补充说明))
-    10. 用 `linux-m928q.dtb`替换`linux-guacamole.dtb`.(如果没有，可以通过`touch linux-m928q.dtb`创建一个假的)
-    11. 编译（编译方法参见[README.md](https://github.com/Project-Aloha/mu_aloha_platforms/tree/main#build-instructions)）.
-    12. 测试.
-        + *建议使用fastboot boot命令热启动UEFI进行测试*
-  - 如果移植成功，设备将进入UEFI Shell.
-  - 如果设备卡住、重启或崩溃该怎么做 ?
-    * 参阅步骤3，补丁你的设备的驱动文件, 或联系我们.
+        + *所以你必须编辑 `${brand-codename}/DXE.inc` 中的 `Raw Files` 部分，并在 `${brand-codename}/DXE.inc` 和 `${brand-codename}/DXE.dsc.inc` 中添加 SimpleTextInOutSerial*
+        + *如果 SimpleTextInOutSerial 也在 Binaries/APRIORI.inc 中设置，你需要将其添加到 `${brand-codename}/APRIORI.inc`*
+    6. 如果需要，在 `Defines.dsc.inc` 中启用 MLVM（FALSE -> TRUE）。
+    7. 在 `PcdFixedAtBuild.dsc.inc` 中编辑分辨率。
+    8. 补丁设备的dxe并将其放置在 `PatchedBinaries/` 下。
+    9. 用 `android-m928q.dtb` 替换 `android-guacamole.dtb`。请参阅 [Additions](#additions) 以获取设备的android DTB。
+    10. 用 `linux-m928q.dtb` 替换 `linux-guacamole.dtb`。（如果没有，创建一个虚拟的 `touch linux-m928q.dtb`）
+    11. 构建它。请参阅uefi readme。**记住启用DEBUG BUILD和SCREEN DEBUG**
+    12. 测试它。
+        + *将手机连接到电脑并在电脑上执行。*
+          ```bash
+          adb reboot bootloader
+          fastboot boot Build/meizu-m928q/meizu-m928q.img
+          ```
+  - 如果移植成功，设备将进入带有QRCode的FFU Flash App。
+  - 如果它卡住、重启或崩溃怎么办？
+    * 请参阅第3部分并补丁设备的固件二进制文件，或联系我们。
 ___
-## **步骤2.** 尝试启动Windows并测试UFS和USB.
-  *有些设备的DSDT是最小的DSDT. 它只包含USB和UFS.*
-  - 在你的设备上启动Windows PE.
-  - 如果设备卡住、重启或崩溃该怎么做 ?
-    * 检查MemoryMap *(brand-codename/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.c)*.
-    * 检查DeviceConfigurationMap *(brand-codename/Include/Configuration/DeviceConfigurationMap.h)*.
-    * 检查`Defines.dsc.inc`中的HAS_MLVM, 尝试将其设为`TRUE`.
-  - 使用供电扩展坞后仍然无法使用USB?
-    * 补丁驱动.
-  *如果移植成功，设备将进入PE.*
+## **第2部分。** 尝试启动Windows。
+  *guacamole的DSDT是基本的DSDT。它只包含USB和UFS。*
+  - 在设备上设置Windows PE环境。
+  - 尝试启动到Windows PE。
+  - 如果它卡住、重启或崩溃怎么办？
+    * 检查MemoryMap *(brand-codename/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.c)*。
+    * 检查DeviceConfigurationMap *(brand-codename/Configuration/DeviceConfigurationMap.h)*。
+    * 检查 `Defines.dsc.inc` 中的HAS_MLVM，如果Windows在启动时挂起，尝试将其设置为 `TRUE`。
+  - 使用外部电源供应USB不工作？
+    * 补丁固件二进制文件。
+  *如果移植成功，它将启动到PE。*
 ___
-## **步骤3.** 驱动补丁.
-  - 那些驱动需要补丁 ?
-    * 如果设备在加载PILDxe时卡住, 你需要补丁 UFSDxe.
-    * 如果设备无法通过KDNET连接电脑, 或使用供电扩展坞后仍然无法在Windows内使用USB, 你需要补丁 UsbConfigDxe.
-    * 如果设备在uefi菜单无法使用按键, 你需要补丁 ButtonsDxe.
-  - 如何找到需要补丁的位置 ?
-    * 最简单的方法:
-      + 找到另一个设备的原始xxxDxe.efi和它补丁过的 xxxDxe.efi .
-      + hex对比一下，就知道应该patch哪里和patch什么了.
+## **第3部分。** 补丁二进制文件。
+  - 哪些二进制文件需要补丁？
+    * 如果手机在加载PILDxe时卡住，补丁UFSDxe。
+    * 如果手机无法通过KDNET连接PC，或USB在Windows中不工作（使用外部电源），补丁UsbConfigDxe。
+    * 如果手机无法在uefi阶段使用按钮，请补丁ButtonsDxe。
+  - 在哪里补丁？
+    * 最简单的方法知道在哪里补丁：
+      + 找到另一个设备的原始xxxDxe.efi和其补丁的xxxDxe.efi。
+      + 转储hex并获取在哪里和什么补丁。
         ```bash
         hexdump -C a_xxxDxe.efi > a.txt
         hexdump -C b_xxxDxe.efi > b.txt
         diff a.txt b.txt
         ```
-        - 例: 
-            * UFSDxe.efi (nabu):
+        - 示例：
+            * UFSDxe.efi (nabu)：
             ```bash
-            ~/mu-msmnile/Platforms/SurfaceDuo1Pkg/Device/xiaomi-nabu$ diff a.txt b.txt 
+            ~/<repo_root>/Platforms/SurfaceDuo1Pkg/Device/xiaomi-nabu$ diff a.txt b.txt 
             383c383
             < 000025f0  00 00 80 52 c0 03 5f d6  fd 7b 03 a9 fd c3 00 91  |...R.._..{......|
             ---
@@ -150,34 +167,34 @@ ___
             ---
             > 00004710  ff 83 00 d1 fd 7b 01 a9  fd 43 00 91 e8 7b 00 32  |.....{...C...{.2|
             ```
-    * 如何patch ?
-      + 现在你知道了被补丁的位置是`0x000025f0`和`0x00004710`.
-      + 在IDA (或其他工具)打开这两个efi文件, 查找位于或临近`0x000025f0`和`0x00004710`的函数/指令.
-      + 看看哪些命令被修改了.
-      + 在IDA中打开你的设备的xxxDxe.efi.
-      + 找到相同或相似的函数/指令.
-      + 给你的设备的xxxDxe.efi应用相同的补丁.
-      + 将补丁过的efi驱动文件放到`PatchedBinaries/`.
-      + 检查DXE.dsc.inc和DXE.inc中patch过的驱动文件的路径.
+    * 如何补丁？
+      + 现在你知道差异地址是 `0x000025f0` 和 `0x00004710`。
+      + 在IDA（或其他工具）中打开两个efi文件，找到 `0x000025f0` 和 `0x00004710` 附近的函数。
+      + 查看哪些指令被修改了。
+      + 在IDA中打开设备的xxxDxe.efi。
+      + 找到相同的函数。
+      + 为设备的xxxDxe.efi应用相同的补丁。
+      + 将补丁二进制文件放置在 `PatchedBinaries/` 下。
+      + 检查DXE.inc和DXE.dsc.inc中设备的补丁二进制文件的路径。
 ___
-## **补充说明**
-  - 如何获得我的设备的dtb? *默认在termux环境中*
-    * 下载Magiskboot. ([Prebuilt](https://github.com/TeamWin/external_magisk-prebuilt/blob/android-11/prebuilt/))
-    * 提取设备的boot分区.
+## **Additions**
+  - 如何获取设备的dtb？*假设在termux环境中*
+    * 下载Magiskboot。（[Prebuilt](https://github.com/TeamWin/external_magisk-prebuilt/blob/android-11/prebuilt/)）
+    * 从手机获取boot镜像。
       ```bash
       sudo cp /dev/block/by-name/boot ~/split-appended-dtb/myboot.img
       ```
-    * Magsikboot解包boot获得dtb.
+    * 从手机的boot中分割dtb。
       ```bash
       ./magiskboot_arm unpack myboot.img
       ```
-    * 将`kernel_dtb`重命名为`android-设备代号.dtb`并放置在Device/品牌-设备代号/DeviceTreeBlob/Android/.
-  - MLVM应该一直为`TRUE`吗?
-    * 在早期测试中你可以将其设置为`TRUE`来避免MLVM问题.
-    * 如果你可以启动Windows, 请尝试将其恢复`FALSE`.
-    * 将MLVM设为`TRUE`会占用大约300MB运行内存.
+    * 将 `kernel_dtb`（或 `dtb`）重命名为 android-`codename`.dtb 并放置在 Device/*\<brand-codename\>*/DeviceTreeBlob/Android/ 中。
+  - MLVM应该总是 `TRUE` 吗？
+    * 在早期测试中你可以将其设置为 `TRUE` 以避免MLVM问题。
+    * 如果你可以启动Windows，将其关闭为 `FALSE` 并尝试。
+    * 将MLVM设置为 `TRUE` 将占用大约300MB Ram。
 ___
-***不要忘记将你的设备和你的名字添加到[README](https://github.com/Project-Aloha/mu_aloha_platforms/tree/main#target-list)中.***  
-***感谢你的付出.***
+***不要忘记将设备和维护者添加到 [README](https://github.com/Project-Aloha/mu_aloha_platforms)。***
+***感谢你的辛勤工作。***
 
 
