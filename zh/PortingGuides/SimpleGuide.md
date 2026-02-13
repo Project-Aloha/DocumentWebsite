@@ -78,7 +78,7 @@ ___
       * 由SurfaceDuo1.dsc包含
     - **Defines.dsc.inc**
       * 特殊用途的宏。
-      * 有关宏的详细信息，请阅读 [DefinesGuidance.md](DefinesGuidance.md)
+      * 有关宏的详细信息，请阅读 [宏定义说明](DefinesGuidance.md)
     - **PcdsFixedAtBuild.dsc.inc**
       * 由SurfaceDuo1.dsc包含。
       * 存储设备特定的pcds。（例如屏幕分辨率）

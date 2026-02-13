@@ -78,7 +78,7 @@ ___
       * Included by SurfaceDuo1.dsc
     - **Defines.dsc.inc**
       * Macros for special use.
-      * For detailed about Macros, please read [DefinesGuidance.md](DefinesGuidance.md)
+      * For detailed about Macros, please read [DefinesGuidance](DefinesGuidance.md)
     - **PcdsFixedAtBuild.dsc.inc**
       * Included by SurfaceDuo1.dsc.
       * Stores device specific pcds. (e.g Screen resolution)

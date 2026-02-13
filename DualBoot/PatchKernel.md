@@ -85,16 +85,16 @@ Please do not patch a patched kernel.
 
 - Test with fastboot.
   + Send `new-boot.img` to your computer:
-  ```pwsh
+  ```powershell
   adb pull /sdcard/dualboot/new-boot.img
   ```
   + Reboot to fastboot
-  ```pwsh
+  ```powershell
   adb reboot bootloader
   ```
   + Ensure OS-switch is on the correct state before it loading. Like magnet shell or tri-state key.
   + Try load boot image once.
-  ```pwsh
+  ```powershell
   fastboot boot new-boot.img
   ```
   + See if the device is entering a correct os.
@@ -102,12 +102,12 @@ Please do not patch a patched kernel.
 - Flash boot image into disk
   + If everything goes well and boot image was backuped. You can flash boot image into disk now. Then no fastboot command is required when using dualboot.
   + Flash boot:
-  ```pwsh
+  ```powershell
   fastboot flash boot new-boot.img
   ```
 - Recover original boot image:
   + If you want to remove dualboot, flash your backuped boot image.
-  ```pwsh
+  ```powershell
   fastboot flash boot.img
   ```
 

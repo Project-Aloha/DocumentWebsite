@@ -63,6 +63,7 @@ function sidebarDocs(): DefaultTheme.SidebarItem[] {
       text: 'UEFI移植',
       items: [
         { text: '设备移植简述', link: '/PortingGuides/SimpleGuide'},
+        { text: '宏定义说明', link: '/PortingGuides/DefinesGuidance'},
         { text: '调试', link: '/PortingGuides/Debug'}
       ]
     },
