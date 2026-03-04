@@ -8,7 +8,6 @@
 | Xiaomi  | Mi 9        | Cepheus   | [Github](https://github.com/n00b69/woa-cepheus)                           |
 | Xiaomi  | Pad 5       | Nabu      | [Github](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5)          |
 | Xiaomi  | POCO X3 PRO | Vayu      | [Github](https://github.com/WaLoVayu/POCOX3Pro-Windows-Guides)            |
-| Xiaomi  | Mix 3       | Perseus   | [Github](https://github.com/n00b69/woa-perseus)                           |
 | LG      | G8          | Alpha     | [Github](https://github.com/n00b69/woa-alphaplus)                         |
 | LG      | G8s         | Beta      | [Github](https://github.com/n00b69/woa-betalm)                            |
 | LG      | G8x         | Mh2lm     | [Github](https://github.com/n00b69/woa-mh2lm)                             |

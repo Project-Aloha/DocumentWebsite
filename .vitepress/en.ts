@@ -35,7 +35,7 @@ function sidebarDocs(): DefaultTheme.SidebarItem[] {
       ]
     },
     {
-      text: 'Guides',
+      text: 'Instalattion Guides',
       items: [
         { text: 'Guides Collection', link: '/InstallationGuides/GuidesCollection'},
         { text: 'Enter UMS Mode', link: '/InstallationGuides/EnterUMS'},

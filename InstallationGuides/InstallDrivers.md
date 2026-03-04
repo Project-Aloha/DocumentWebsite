@@ -11,14 +11,6 @@
 - Download [DriverUpdater](https://github.com/WOA-Project/DriverUpdater/releases) by [WOA-Project](https://github.com/WOA-Project/)
   > Generally speaking please download the x64/x86 one, if **Your Computer** has more than one x86 CPU.
 
-- Download Driver Pack
-  > Just click the Download Button in the page.
-  <img src="/InstallationGuides/Resources/InstallDrivers/HowToDownload1.png" width=40%/>
-  - For Sm8150 Devices, the repo is [msmnile-Drivers](https://github.com/Project-Aloha/msmnile-Drivers)
-  - For Sm7125 Devices, the repo is [Atoll-Drivers](https://github.com/Project-Aloha/Atoll-Drivers)
-  - For others, please refer to [QC Silicons' Codename Reference Table](../ReferenceTables/QCSiliconCodenameReferenceTable.md)  
-    and download the one named xxx-Drivers.
-
 - Download Device Specific Driver Pack
   > Just click on archive with name like drivers.
   <img src="/InstallationGuides/Resources/InstallDrivers/HowToDownload2.png" width=40%/>
@@ -29,11 +21,10 @@
 | XiaoMi |K20 Pro     |raphael   | [Driver Pack](https://github.com/new-WoA-Raphael/woa-raphael/releases/tag/Drivers)        |
 | XiaoMi |Pad 5       |nabu      | [Driver Pack](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/releases/tag/Drivers)|
 | XiaoMi |POCO X3 PRO |vayu      | [Driver Pack](https://github.com/WaLoVayu/POCOX3Pro-Windows-Releases/releases/tag/2502.28)|
-| XiaoMi |Mix 3       |perseus   | [Driver Pack](https://github.com/n00b69/woa-perseus/releases/tag/Drivers)                 |
 | XiaoMi |Note 9S     | miatoll  | [Driver Pack](https://github.com/woa-miatoll/Miatoll-Releases/releases/latest)            |
 | LG     |G8          |alphaplus | [Driver Pack](https://github.com/n00b69/woa-alphaplus/releases/tag/Drivers)               |
 | LG     |G8s         |betalm    | [Driver Pack](https://github.com/n00b69/woa-betalm/releases/tag/Drivers)                  |
-| LG     |G8x         |mh2lm	   | [Driver Pack](https://github.com/n00b69/woa-mh2lm/releases/tag/Drivers)                   |
+| LG     |G8x         |mh2lm	 | [Driver Pack](https://github.com/n00b69/woa-mh2lm/releases/tag/Drivers)                   |
 | LG     |V50         |flashlmdd | [Driver Pack](https://github.com/n00b69/woa-flashlmdd/releases/tag/Drivers)               |
 | LG     |V50s        |mh2lm5g   | [Driver Pack](https://github.com/n00b69/woa-mh2lm5g/releases/tag/Drivers)                 |
 | OnePlus|7 Pro 4G    |guacamole | [Driver Pack](https://github.com/n00b69/woa-op7/releases/tag/Drivers)                     |

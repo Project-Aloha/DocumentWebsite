@@ -13,7 +13,6 @@
 | XiaoMi |K20 Pro     |raphael   | [Device status](https://github.com/new-WoA-Raphael/woa-raphael/blob/main/guide/status.md)                 |
 | XiaoMi |Pad 5       |nabu      | [Device status](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5/blob/main/guide/English/status.md) |
 | XiaoMi |POCO X3 PRO |vayu      | [Device status](https://github.com/WaLoVayu/POCOX3Pro-Windows-Guides/blob/main/en/status.md)              |
-| XiaoMi |Mix 3       |perseus   | [Device status](https://github.com/n00b69/woa-perseus/blob/main/guide/status.md)                          |
 | LG     |G8          |alphaplus | [Device status](https://github.com/n00b69/woa-alphaplus/blob/main/guide/status.md)                        |
 | LG     |G8s         |betalm    | [Device status](https://github.com/n00b69/woa-betalm/blob/main/guide/status.md)                           |
 | LG     |G8x         |mh2lm	 | [Device status](https://github.com/n00b69/woa-mh2lm/blob/main/guide/status.md)                            |
