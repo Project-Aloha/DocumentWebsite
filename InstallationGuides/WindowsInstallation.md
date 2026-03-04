@@ -83,7 +83,7 @@ Then replace index:6 with the correct index of Windows 11
 If an error appears like:
 "Failure when attempting to copy boot files"
 
-Reopen diskpart and assign a new letter to ESPVAYU, then use that letter instead of Y.
+Reopen diskpart and assign a new letter to the ESP partition (ESP(DEVICE-NAME)), then use that letter instead of Y.
 
 Create boot files:
 
