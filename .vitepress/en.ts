@@ -41,16 +41,16 @@ function sidebarDocs(): DefaultTheme.SidebarItem[] {
         { text: 'Enter UMS Mode', link: '/InstallationGuides/EnterUMS'},
         { text: 'Windows Installation', link: '/InstallationGuides/WindowsInstallation' },
         { text: 'Install Drivers', link: '/InstallationGuides/InstallDrivers'},
-        { text: 'Hide Partition', link: '/InstallationGuides/SetGPTPartitionSystemAttr.md'},
-        { text: '24H2 GPT Errata', link: '/InstallationGuides/GPTErrata.md'},
-        { text: 'Disable Secure Boot', link: '/InstallationGuides/SecureBoot.md'},
+        { text: 'Hide Partition', link: '/InstallationGuides/SetGPTPartitionSystemAttr'},
+        { text: '24H2 GPT Errata', link: '/InstallationGuides/GPTErrata'},
+        { text: 'Disable Secure Boot', link: '/InstallationGuides/SecureBoot'},
       ]
     },
     {
       text: 'Dual Boot',
       items: [
         { text: 'Introduction', link: '/DualBoot/Introduction'},
-        { text: 'Apply DualBoot', link:'/DualBoot/PatchKernel.md'},
+        { text: 'Apply DualBoot', link:'/DualBoot/PatchKernel'},
         { text: 'Config', link: '/DualBoot/Config'},
         { text: 'Shell Code', link: '/DualBoot/ShellCode'},
       ]
@@ -67,9 +67,9 @@ function sidebarDocs(): DefaultTheme.SidebarItem[] {
     {
       text: 'Debug Windows',
       items: [
-        { text: 'Setup KDNET', link: '/WindowsDebug/SetupKDNET.md'},
-        { text: 'Setup KDCOM', link: '/WindowsDebug/SetupKDCOM.md'},
-        { text: 'RDP via KdNet', link: '/WindowsDebug/KdNetRDP.md'},
+        { text: 'Setup KDNET', link: '/WindowsDebug/SetupKDNET'},
+        { text: 'Setup KDCOM', link: '/WindowsDebug/SetupKDCOM'},
+        { text: 'RDP via KdNet', link: '/WindowsDebug/KdNetRDP'},
       ]
     },
     {

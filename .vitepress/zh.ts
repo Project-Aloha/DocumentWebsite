@@ -70,9 +70,9 @@ function sidebarDocs(): DefaultTheme.SidebarItem[] {
     {
       text: '调试Windows',
       items: [
-        { text: '配置 KDNET', link: '/WindowsDebug/SetupKDNET.md'},
-        { text: '配置 KDCOM', link: '/WindowsDebug/SetupKDCOM.md'},
-        { text: 'KDNET 远程桌面', link: '/WindowsDebug/KdNetRDP.md'},
+        { text: '配置 KDNET', link: '/WindowsDebug/SetupKDNET'},
+        { text: '配置 KDCOM', link: '/WindowsDebug/SetupKDCOM'},
+        { text: 'KDNET 远程桌面', link: '/WindowsDebug/KdNetRDP'},
       ]
     },
     {
