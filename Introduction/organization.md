@@ -1,2 +1,2 @@
 # Project-Aloha
-> Project-Aloha is a organization gathered people who are porting woa to SM8150 and other silicons.
+> Project-Aloha is an organization of people porting WoA to SM8150 and other SoCs.
