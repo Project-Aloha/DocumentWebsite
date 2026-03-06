@@ -79,8 +79,8 @@
 | SD8 Gen2            | SM8550                  | KAILUA            | Kalama        |
 | SD8 Gen3            | SM8650                  | LANAI             | Pineapple     |
 | SD8 Elite Gen1      | SM8750                  | PAKALA            | Sun           |
-| SD8 Gen5            | SM8845                  | MOLOKAI           |               |
-| SD8 Elite Gen5      | SM8850                  | KAANAPALI         |               |
+| SD8 Gen5            | SM8845                  | MOLOKAI           | Canoe         |
+| SD8 Elite Gen5      | SM8850                  | KAANAPALI         | Canoe         |
 
 
 ## Gaming Platform
