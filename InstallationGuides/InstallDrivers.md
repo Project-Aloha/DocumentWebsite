@@ -15,9 +15,9 @@
 | Vendor | Device     | CodeName | Drivers                                                                                     |
 |--------|------------|----------|---------------------------------------------------------------------------------------------|
 | XiaoMi |Mi 9        |cepheus   | [Driver Pack](https://github.com/qaz6750/XiaoMi9-Drivers/releases)                          |
-| XiaoMi |K20 Pro     |raphael   | [Driver Pack](https://github.com/new-WoA-Raphael/woa-raphael/releases/tag/Drivers)          |
-| XiaoMi |Pad 5       |nabu      | [Driver Pack](https://github.com/remtrik-stuff/MiPad5-Windows-Releases/releases/latest)|
-| XiaoMi |POCO X3 PRO |vayu      | [Driver Pack](https://github.com/WaLoVayu/POCOX3Pro-Windows-Releases/releases/latest)  |
+| XiaoMi |K20 Pro     |raphael   | [Driver Pack](https://github.com/rexnox/windows_xiaomi_platforms/releases)                  |
+| XiaoMi |Pad 5       |nabu      | [Driver Pack](https://github.com/remtrik-stuff/MiPad5-Windows-Releases/releases/latest)     |
+| XiaoMi |POCO X3 PRO |vayu      | [Driver Pack](https://github.com/WaLoVayu/POCOX3Pro-Windows-Releases/releases/latest)       |
 | XiaoMi |Note 9S     |miatoll   | [Driver Pack](https://github.com/woa-miatoll/Miatoll-Releases/releases/latest)              |
 | LG     |G8          |alphaplus | [Driver Pack](https://github.com/n00b69/woa-alphaplus/releases/tag/Drivers)                 |
 | LG     |G8s         |betalm    | [Driver Pack](https://github.com/n00b69/woa-betalm/releases/tag/Drivers)                    |
