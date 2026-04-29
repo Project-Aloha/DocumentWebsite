@@ -29,4 +29,4 @@ Alternatively if you do not want to use vscode:
 - Run `npm run docs:dev` at the root of this repo.
 
 ### For More
-You can read [VitePress's Guides](https://vitepress.dev/guide/getting-started) if you want edit configurations here or want to use some speacial markdown feature provided by vitepress.
+You can read [VitePress's Guides](https://vitepress.dev/guide/getting-started) if you want edit configurations here or want to use some special markdown feature provided by vitepress.

@@ -112,4 +112,4 @@ Please do not patch a patched kernel.
   ```
 
 ## Remove dualboot
-Run `DualBootPatchRemover` on the patched kernel and rebuild the boot image. After flashing to boot parition the dualboot feature will disappear.
+Run `DualBootPatchRemover` on the patched kernel and rebuild the boot image. After flashing to boot partition the dualboot feature will disappear.

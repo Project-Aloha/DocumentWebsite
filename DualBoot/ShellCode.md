@@ -20,4 +20,4 @@ Shell Code is the key place why we patch kernel or what do we patch kernel for.
     - Handles unexceptional behavior in the end.
 
 ## DTB Wrapper
-  - Comming soon.
+  - Coming soon.

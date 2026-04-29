@@ -1,6 +1,6 @@
 # Setup Windbg KdCom
 ::: tip Tips
-Sugguest using KdNet for better experience if you can not access your device's uart pins easily.  
+Suggest using KdNet for better experience if you can not access your device's uart pins easily.  
 KdCom does not support rdp over it.
 :::
 
@@ -49,7 +49,7 @@ KdCom does not support rdp over it.
     ```
     ```bash
     # Execute on phone
-    # Backup nomal BCD
+    # Backup normal BCD
     cp /dev/esp_mnt/EFI/Microsoft/Boot/BCD /dev/esp_mnt/EFI/Microsoft/Boot/NMBCD
     # Backup kdnet enabled BCD
     cp /sdcard/BCD /dev/esp_mnt/EFI/Microsoft/Boot/DBGBCD
