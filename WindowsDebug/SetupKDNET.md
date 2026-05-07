@@ -45,7 +45,7 @@
     ```
     ```bash
     # Execute on phone
-    # Backup nomal BCD
+    # Backup normal BCD
     cp /dev/esp_mnt/EFI/Microsoft/Boot/BCD /dev/esp_mnt/EFI/Microsoft/Boot/NMBCD
     # Backup kdnet enabled BCD
     cp /sdcard/BCD /dev/esp_mnt/EFI/Microsoft/Boot/DBGBCD
@@ -54,7 +54,7 @@
     ```
 
 ### Setup KDNET in Windbg
-  - Opne Windbg(Preview)，Click the **File** button on the top left corner
+  - Open Windbg(Preview)，Click the **File** button on the top left corner
   - Click `Attach to kernel` under `Start debugging`(default section).
   - Click `Net`(default section)
     + Type `50000` in `Port Number`

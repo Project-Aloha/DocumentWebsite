@@ -21,7 +21,7 @@ If you do not need it, set the two values to 0.
     + StackSize the right after the base address of `UEFI FD`.
   
   - `RestartReasonAddress`
-    + Comming Soon.
+    + Coming Soon.
     + RestartReasonAddress can be found in a Qualcomm device's device tree.
     + Enter android or recovery, run the following shell cmd with root permission.
     + Output should like this:
