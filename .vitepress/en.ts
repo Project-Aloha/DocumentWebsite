@@ -70,6 +70,7 @@ function sidebarDocs(): DefaultTheme.SidebarItem[] {
         { text: 'Setup KDNET', link: '/WindowsDebug/SetupKDNET'},
         { text: 'Setup KDCOM', link: '/WindowsDebug/SetupKDCOM'},
         { text: 'RDP via KdNet', link: '/WindowsDebug/KdNetRDP'},
+        { text: 'Troubleshooting Bugchecks', link: '/WindowsDebug/TroubleshootingBugchecks'},
       ]
     },
     {
