@@ -10,8 +10,8 @@ Aloha uefi uses our own certs by default. It's private and will not be shared wi
 
 ### Generate Key Pairs
 This script can help you generate certs. Replace the Path, Name, and E-mail in the script with your own before running.
-- [SBCertGen.ps1](/PortingGuides/SecureBoot/SBCertGen.ps1)
-- [SBCertGen.sh](/PortingGuides/SecureBoot/SBCertGen.sh)
+- <a href="/Security/SecureBoot/SBCertGen.ps1" download>SBCertGen.ps1</a>
+- <a href="/Security/SecureBoot/SbCertGen.sh" download>SBCertGen.sh</a>
 
 ![Generate Certs](Resources/GenCerts.png)
 
