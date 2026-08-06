@@ -22,7 +22,7 @@ This repo uses ***VitePress*** to generate static pages.
 > If your page needs pictures or other small resources(less than 800KB), you can put it at `[GuideClass]/Resources/[NameOfYourGuide]/`
 
 ### Local debug
-- Install nodejs and insure it's added in PATH.
+- Install Node.js and ensure it's added to PATH.
 - Clone this repo and open in vscode.
 - Click `Run` in vscode.
 Alternatively if you do not want to use vscode:
