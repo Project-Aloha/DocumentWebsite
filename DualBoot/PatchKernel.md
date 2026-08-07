@@ -3,7 +3,7 @@
 
 ## Prepare
 - An android device.
-- Download `UEFI FD` file from [Github Action](https://github.com/Project-Aloha/mu_aloha_platforms/actions)(You may need to login to download artifacts) or [Release Page](https://github.com/Project-Aloha/mu_aloha_platforms/releases) of uefi repository.
+- Download `UEFI FD` file from [GitHub Action](https://github.com/Project-Aloha/mu_aloha_platforms/actions)(You may need to login to download artifacts) or [Release Page](https://github.com/Project-Aloha/mu_aloha_platforms/releases) of uefi repository.
 - `Magiskboot` for your environment, there are prebuilt binaries on github.
 - DualBoot kernel patcher binary and shellcode binaries for your devices from [release page](https://github.com/Project-Aloha/DualBootKernelPatcher/releases) or [action page](https://github.com/Project-Aloha/DualBootKernelPatcher/actions).
 
@@ -13,9 +13,9 @@
 
 ## Steps
 > Assume you have done the following steps on your android device.
->  1. Root your device with magisk.
->  2. Downloaded and installed termux.
->  3. Installed root-repo and tsu in termux with apt.
+> 1. Root your device with magisk.
+> 2. Downloaded and installed termux.
+> 3. Installed root-repo and tsu in termux with apt.
 
 - Get Android Boot Image.
   + The boot image usually can be found at `/dev/block/by-name/boot` or `/dev/block/by-name/boot_a` (or _b).
@@ -27,7 +27,7 @@
   ```
 
 - Unpack it with magiskboot.
-  + If your device was rooted by magisk, there should be an magiskboot binary at `/data/adb/magisk/magiskboot`
+  + If your device was rooted by magisk, there should be a magiskboot binary at `/data/adb/magisk/magiskboot`
   + By the way you can press the `tab` button in termux to automatically fill path, instead of typing the characters one by one.
   + Do Unpack
   ```bash
@@ -61,7 +61,7 @@ Please do not patch a patched kernel.
 - Apply patch with dualboot kernel patcher.
   + Assume the patcher and shellcodes and config you downloaded above was saved at `/sdcard/Download/`
   + Unpack these zips with these cmds, or extract in file manager.
-  ```
+  ```bash
   unzip /sdcard/Download/Shellcodes.zip
   unzip /sdcard/Download/DualBootKernelPatcher-Linux-arm64.zip
   unzip /sdcard/Download/Config.zip
@@ -81,7 +81,7 @@ Please do not patch a patched kernel.
   mv patched_kernel kernel
   /data/adb/magisk/magiskboot repack boot.img
   ```
-  + You will get a file named `new-boot.img` if magiskboot success.
+  + You will get a file named `new-boot.img` if magiskboot succeeds.
 
 - Test with fastboot.
   + Send `new-boot.img` to your computer:
@@ -100,13 +100,13 @@ Please do not patch a patched kernel.
   + See if the device is entering a correct os.
 
 - Flash boot image into disk
-  + If everything goes well and boot image was backuped. You can flash boot image into disk now. Then no fastboot command is required when using dualboot.
+  + If everything goes well and boot image was backed up. You can flash boot image into disk now. Then no fastboot command is required when using dualboot.
   + Flash boot:
   ```powershell
   fastboot flash boot new-boot.img
   ```
 - Recover original boot image:
-  + If you want to remove dualboot, flash your backuped boot image.
+- If you want to remove dualboot, flash your backed up boot image.
   ```powershell
   fastboot flash boot.img
   ```

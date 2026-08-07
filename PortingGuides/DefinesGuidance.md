@@ -17,7 +17,7 @@
   * Type
     - Boolean
   * Why define it ?
-    - Some Device may want it's own logo. (i.e. Brand's Logo)
+    - Some Device may want its own logo. (i.e. Brand's Logo)
   * What happened when **1**?
     - The Boot Logo will be replaced with the one under `Device/$(brand-codename)/Include/Resources/CustBootLogo.bmp`
   * Where used it ?

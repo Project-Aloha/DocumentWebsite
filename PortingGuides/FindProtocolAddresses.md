@@ -38,20 +38,20 @@ ___
         - Waiting Decompile finish.
         - Press `Alt+B`.
         - Type `E8 E1 06 3A F6 61 EB 11 BB ED 4B 47 6E 2F F6 A7`, Click **OK**.
-            <img src="/PortingGuides/Resources/FindProtocolAddresses/IDABinarySearch.png" width=80%/>
+            <img src="/PortingGuides/Resources/FindProtocolAddresses/IDABinarySearch.png" alt="IDA binary search dialog" width=80%/>
         - Double Click the only result, the tool will jump to IDA `View-A`.
         - Click the label (e.g. *unk_A703B290*), then press `x`, Click **OK**.
-            <img src="/PortingGuides/Resources/FindProtocolAddresses/IDAXrefs.png" width=80%/>
-        - Select the instruction that 2 instractions before *ADRL X0,unk_A703B290*(it is *ADRL X8, unk_A703B0C8* here.).
-            <img src="/PortingGuides/Resources/FindProtocolAddresses/IDAViewASecDTB.png" width=80%/>
-        - Copy *A703B0C8* to your note book. This is XBL DTB Protocol Address.
+            <img src="/PortingGuides/Resources/FindProtocolAddresses/IDAXrefs.png" alt="IDA xrefs result" width=80%/>
+        - Select the instruction that 2 instructions before *ADRL X0,unk_A703B290*(it is *ADRL X8, unk_A703B0C8* here.).
+            <img src="/PortingGuides/Resources/FindProtocolAddresses/IDAViewASecDTB.png" alt="IDA View-A section" width=80%/>
+        - Copy *A703B0C8* to your notebook. This is XBL DTB Protocol Address.
         - Press `Alt+B`.
         - Type `8D BD C2 8E D7 56 EF 49 87 96 63 17 78 F8 EB F8` and Click **OK**.
         - Use the same way you just done, then you'll find the address for Schedule Protocol.
 
   4. Fill address in your device's PcdsFixedAtBuild.dsc.inc.
       - Here gives an example.  
-        <img src="/PortingGuides/Resources/FindProtocolAddresses/PcdsFixedAtBuildSample.png" width=80%/>
+        <img src="/PortingGuides/Resources/FindProtocolAddresses/PcdsFixedAtBuildSample.png" alt="PcdsFixedAtBuild sample" width=80%/>
 
 ## Notice & Issues
   - Fix address here may cause some issues.

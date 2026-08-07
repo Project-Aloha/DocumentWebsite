@@ -4,3 +4,4 @@ dist
 .npmrc
 .idea
 .vitepress/cache
+.venv-spell

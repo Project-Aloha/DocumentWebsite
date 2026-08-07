@@ -2,7 +2,7 @@
 
 ## Enable log output
 Our UEFI provides 4 ways currently for getting UEFI logs.
-```
+```text
   USE_SCREEN_FOR_SERIAL_OUTPUT    = 0
   USE_UART_GENI_FOR_SERIAL_OUTPUT = 0
   USE_UART_DM_FOR_SERIAL_OUTPUT   = 0
@@ -26,6 +26,6 @@ Similar to **USE_UART_GENI_FOR_SERIAL_OUTPUT**. It's used for older Qualcomm pla
 Set to **1** to print logs to pstore memory. It's useful when you have JTAG or EUD enabled on your
 device. The log output region is defined in your device's *Library/PlatformMemoryMapLib/PlatformMemoryMapLib.c*.  
 The region must be named *PStore* like this:
-```
+```text
 {"PStore", <StartAddress>, <Size>, AddMem, MEM_RES, SYS_MEM_CAP, Reserv, WRITE_THROUGH_XN},
 ```

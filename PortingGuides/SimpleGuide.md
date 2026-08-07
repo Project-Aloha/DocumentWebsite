@@ -1,4 +1,4 @@
-# mu_aloha_platforms Porting Guide. 
+# mu_aloha_platforms Porting Guide.
 :::danger
  **⚠ Do not try it on Google devices, Sony devices or Samsung devices.**
  **⚠ Do not use any other devices' firmware even if same vendor or similar hw**
@@ -11,7 +11,7 @@
 >> 3. Patch binaries.
 ___
 ## **Part 0.** Introduce directories and files.
-  - We only need to know few directories and files under `Platform/SurfaceDuo1Pkg/`
+  - We only need to know a few directories and files under `Platform/SurfaceDuo1Pkg/`
     ```bash
     ~/<repo_root>$ tree Platforms/SurfaceDuo1Pkg/ -L 2 -d
     Platforms/SurfaceDuo1Pkg/
@@ -39,7 +39,7 @@ ___
       * Contains C headers and ACPI.inc
     - **PythonLibs/**
       * Stores python libs like android boot pack configuration.
-  - Let's take a closer look at `Device/nubia-tp1803`. 
+  - Let's take a closer look at `Device/nubia-tp1803`.
     ```bash
     ~/<repo_root>/Platforms/SurfaceDuo1Pkg/Device$ tree -L 1  nubia-tp1803/
     ├── ACPI
@@ -113,7 +113,7 @@ ___
         + *So you have to edit `Raw Files` part in `${brand-codename}/DXE.inc` and add SimpleTextInOutSerial in `${brand-codename}/DXE.inc` and `${brand-codename}/DXE.dsc.inc`*
         + *If SimpleTextInOutSerial is also set in Binaries/APRIORI.inc, you need to add it into `${brand-codename}/APRIORI.inc`*
     6. Enable MLVM in `Defines.dsc.inc` (FALSE -> TRUE) if needed.
-    7. Edit resolution in `PcdFixedAtBuild.dsc.inc`.
+    7. Edit resolution in `PcdsFixedAtBuild.dsc.inc`.
     8. Patch your device's dxe and put them under `PatchedBinaries/`.
     9. Replace `android-guacamole.dtb` with `android-m928q.dtb`. See [Additions](#additions) to get android DTB of your device.
     10. Replace `linux-guacamole.dtb` with `linux-m928q.dtb`.(if you do not have, create a dummy one with `touch linux-m928q.dtb`)
@@ -124,29 +124,29 @@ ___
           adb reboot bootloader
           fastboot boot Build/meizu-m928q/meizu-m928q.img
           ```
-  - Your device will enter FFU Flash App which has a QRCode if porting success.
-  - What if it stacks, reboots or crashes ?
+  - Your device will enter FFU Flash App which has a QRCode if porting succeeds.
+  - What if it hangs, reboots or crashes ?
     * See part 3 and patch your device's firmware binaries, or contact us.
 ___
 ## **Part 2.** Try to boot windows.
   *The DSDT for guacamole is the basic DSDT. It only contains USB & UFS.*
   - Setup Windows PE environment on your device.
   - Try to boot into Windows PE.
-  - What if it stacks, reboots or crashes ?
+  - What if it hangs, reboots or crashes ?
     * Check MemoryMap *(brand-codename/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.c)*.
     * Check DeviceConfigurationMap *(brand-codename/Configuration/DeviceConfigurationMap.h)*.
     * Check HAS_MLVM in `Defines.dsc.inc`, if windows hangs up at boot, try to set it to `TRUE`.
   - Usb not working with external power supply?
     * Patch firmware binaries.
-  *It will boot into PE if porting success.*
+  *It will boot into PE if porting succeeds.*
 ___
 ## **Part 3.** Patch binaries.
   - Which binary needs Patch ?
-    * If your phone stack while loading PILDxe, patch UFSDxe.
+    * If your phone hangs while loading PILDxe, patch UFSDxe.
     * If your phone can not connect with PC via KDNET, or USB not working in windows(with external power), patch UsbConfigDxe.
     * If your phone can not use button at uefi stage, please patch ButtonsDxe.
   - Where to patch ?
-    * The most simple way to know where to patch:
+    * The simplest way to know where to patch:
       + Find one other device's original xxxDxe.efi and its patched xxxDxe.efi .
       + Dump hex and get where & what to patch.
         ```bash
@@ -154,7 +154,7 @@ ___
         hexdump -C b_xxxDxe.efi > b.txt
         diff a.txt b.txt
         ```
-        - Example: 
+        - Example:
             * UFSDxe.efi (nabu):
             ```bash
             ~/<repo_root>/Platforms/SurfaceDuo1Pkg/Device/xiaomi-nabu$ diff a.txt b.txt 
@@ -184,7 +184,7 @@ ___
       ```bash
       sudo cp /dev/block/by-name/boot ~/split-appended-dtb/myboot.img
       ```
-    * Split dtb from you phone's boot.
+    * Split dtb from your phone's boot.
       ```bash
       ./magiskboot_arm unpack myboot.img
       ```
@@ -195,4 +195,4 @@ ___
     * Set MLVM to `TRUE` will occupy about 300MB Ram.
 ___
 ***Don't forget to add your device and maintainer into [README](https://github.com/Project-Aloha/mu_aloha_platforms).***  
-***Thanks for your hard works.***
+***Thanks for your hard work.***

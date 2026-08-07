@@ -1,12 +1,11 @@
-## UEFI porting status 
+## UEFI porting status
   - [mu_aloha_platforms](https://github.com/Project-Aloha/mu_aloha_platforms#target-list)
 
 # Device porting status
 > In this page you can find porting status for devices.
 -------------------------------------------------------
 
-
-:::details Snapdragon 855/860 - SM8150 
+:::details Snapdragon 855/860 - SM8150
 | Vendor  | Device      | Codename  | Status                                                                                                    |
 |---------|-------------|-----------|-----------------------------------------------------------------------------------------------------------|
 | Xiaomi  | Mi 9        | cepheus   | [Device status](https://github.com/qaz6750/XiaoMi9-Drivers/blob/main/Status.md)                           |

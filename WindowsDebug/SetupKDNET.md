@@ -3,11 +3,11 @@
 ## Preparation
   - A device with windows installed as debugging slave.
   - UEFI Image
-  - An windows device with [windbg preview](https://apps.microsoft.com/detail/9pgjgd53tn86) installed as debugging host.
+  - A Windows device with [Windbg preview](https://apps.microsoft.com/detail/9pgjgd53tn86) installed as debugging host.
   - USB Cable
 
 ## Setup BCD
-  - Mount ESP Partition on you phone with root permission in adb shell or termux.
+  - Mount ESP Partition on your phone with root permission in adb shell or termux.
     + Simply jump this step if you are using USB mass storage mode.
     ```bash
     # Execute on phone
@@ -54,7 +54,7 @@
     ```
 
 ### Setup KDNET in Windbg
-  - Open Windbg(Preview)，Click the **File** button on the top left corner
+  - Open Windbg(Preview), Click the **File** button on the top left corner
   - Click `Attach to kernel` under `Start debugging`(default section).
   - Click `Net`(default section)
     + Type `50000` in `Port Number`

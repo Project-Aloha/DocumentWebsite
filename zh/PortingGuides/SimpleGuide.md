@@ -113,7 +113,7 @@ ___
         + *所以你必须编辑 `${brand-codename}/DXE.inc` 中的 `Raw Files` 部分，并在 `${brand-codename}/DXE.inc` 和 `${brand-codename}/DXE.dsc.inc` 中添加 SimpleTextInOutSerial*
         + *如果 SimpleTextInOutSerial 也在 Binaries/APRIORI.inc 中设置，你需要将其添加到 `${brand-codename}/APRIORI.inc`*
     6. 如果需要，在 `Defines.dsc.inc` 中启用 MLVM（FALSE -> TRUE）。
-    7. 在 `PcdFixedAtBuild.dsc.inc` 中编辑分辨率。
+    7. 在 `PcdsFixedAtBuild.dsc.inc` 中编辑分辨率。
     8. 补丁设备的dxe并将其放置在 `PatchedBinaries/` 下。
     9. 用 `android-m928q.dtb` 替换 `android-guacamole.dtb`。请参阅 [Additions](#additions) 以获取设备的android DTB。
     10. 用 `linux-m928q.dtb` 替换 `linux-guacamole.dtb`。（如果没有，创建一个虚拟的 `touch linux-m928q.dtb`）
@@ -196,5 +196,3 @@ ___
 ___
 ***不要忘记将设备和维护者添加到 [README](https://github.com/Project-Aloha/mu_aloha_platforms)。***
 ***感谢你的辛勤工作。***
-
-

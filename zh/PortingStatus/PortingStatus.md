@@ -1,6 +1,6 @@
 # 设备移植状态
   - mu_aloha_platforms [自述文件](https://github.com/Project-Aloha/mu_aloha_platforms#target-list)
-  - XiaoMi9 [详细设备状态](https://github.com/qaz6750/XiaoMi9-Drivers/blob/main/Status.md)
+  - 小米 9 [详细设备状态](https://github.com/qaz6750/XiaoMi9-Drivers/blob/main/Status.md)
 ## Windows 各设备支持状态
 > [!TIP]
 > 某些设备现在可能达不到表中显示的支持,但是曾经也许达到了。由于驱动程序和UEFI的更新,我们不能保证某些设备的功能一直可用。

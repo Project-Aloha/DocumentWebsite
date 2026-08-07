@@ -30,7 +30,7 @@ export const zh = defineConfig({
       next: '下一页'
     },
     editLink: {
-      text: '在 Github 上编辑此页',
+      text: '在 GitHub 上编辑此页',
       pattern: 'https://github.com/Project-Aloha/DocumentWebsite/edit/main/:path'
     },
     footer: {

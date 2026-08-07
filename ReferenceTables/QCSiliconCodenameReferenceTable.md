@@ -44,9 +44,9 @@
 ### Snapdragon 7
 | Chip name           | Model Number            | Bsp Codename      | HLOS Codename |
 |---------------------|-------------------------|-------------------|---------------|
-| SD720               | SM6250/SM7125           | RENNELL           | Atoll         |    
-| SD730/730G/732G     | SM7150                  | MOOREA            | Magpie        |   
-| SD765G              | SM7250                  | SAIPAN            |               |   
+| SD720               | SM6250/SM7125           | RENNELL           | Atoll         |
+| SD730/730G/732G     | SM7150                  | MOOREA            | Magpie        |
+| SD765G              | SM7250                  | SAIPAN            |               |
 | SD778G/782G         | SM7325                  | KODIAK            | Yupik         |
 | SD780G              | SM7350                  | CEDROS            |               |
 | SD7s Gen2           | SM7435                  | NETRANI           | Parrot        |
@@ -82,7 +82,6 @@
 | SD8 Gen5            | SM8845                  | MOLOKAI           | Canoe         |
 | SD8 Elite Gen5      | SM8850                  | KAANAPALI         | Canoe         |
 
-
 ## Gaming Platform
 | Chip name           | Model Number            | Bsp Codename      | HLOS Codename |
 |---------------------|-------------------------|-------------------|---------------|
@@ -92,19 +91,16 @@
 | SD G2 Gen2          |                         |                   |               |
 | SD G3 Gen3          |                         | LANAI             | Pineapple     |
 
-
 ## Wearable Platform
 | Chip name           | Model Number            | Bsp Codename      | HLOS Codename |
 |---------------------|-------------------------|-------------------|---------------|
 | SD W5 Gen1          | SW5100                  | ATHERTON          |               |
 | SD W5+ Gen1         | SW5100                  | MONACO            |               |
 
-
 ## eXtended Reality Platform
 | Chip name           | Model Number            | Bsp Codename      | HLOS Codename |
 |---------------------|-------------------------|-------------------|---------------|
 | SD XR Gen2          | SXR2230P                | HALLIDAY          |               |
-
 
 ## Computer Platform
 | Chip Name         | Model Number  | Bsp Codename  |
@@ -114,7 +110,6 @@
 | SD 8cx G1/G2      | sc8180x       | Poipu         |
 | SD 8cx G3         | sc8280x       | Makena        |
 | SD X Elite Gen1   | sc8380x       | Hamoa         |
-
 
 ## Automotive Cockpit Platform
 | Model Number  | Bsp Codename | HLOS Codename | (Perhaps) Generation |

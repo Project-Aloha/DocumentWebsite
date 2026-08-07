@@ -1,0 +1,85 @@
+# Markdownlint configuration.
+# Docs: https://github.com/DavidAnson/markdownlint/blob/main/doc/README.md
+# CLI:  https://github.com/DavidAnson/markdownlint-cli2
+
+config:
+  default: true
+
+  # ---- Rules relaxed to match the existing doc style ----
+
+  # MD001 - heading-increment
+  # Guides use headings inside blockquotes (e.g. "> ### Part 1").
+  MD001: false
+
+  # MD004 - ul-style
+  # Lists mix "-" and "+" markers.
+  MD004: false
+
+  # MD007 - ul-indent
+  # Top-level list items are sometimes indented for readability.
+  MD007: false
+
+  # MD013 - line-length
+  # The docs intentionally use long lines (e.g. tables, links, CJK text).
+  MD013: false
+
+  # MD022 - blanks-around-headings
+  # Headings are often immediately followed by content.
+  MD022: false
+
+  # MD024 - no-duplicate-heading
+  # Duplicate headings are common in guides (e.g. "Part 1", "Part 2" sections).
+  MD024:
+    siblings_only: true
+
+  # MD025 - single-title
+  # Some pages use multiple top-level headings (e.g. section dividers).
+  MD025: false
+
+  # MD026 - no-trailing-punctuation
+  # Headings may end with a period in some existing docs.
+  MD026: false
+
+  # MD028 - no-blanks-blockquote
+  # Blank lines inside/around blockquotes are used for readability.
+  MD028: false
+
+  # MD029 - ol-prefix
+  # Step headings use numbers like "3.", "4.", "5." directly.
+  MD029: false
+
+  # MD031 - blanks-around-fences
+  # Fenced code blocks are often glued to the surrounding text.
+  MD031: false
+
+  # MD032 - blanks-around-lists
+  # Lists are often glued to the surrounding text.
+  MD032: false
+
+  # MD033 - no-inline-html
+  # VitePress supports HTML components inside Markdown (e.g. <Badge />, <div>).
+  MD033: false
+
+  # MD035 - hr-style
+  # Horizontal rules mix "---", "___" and "__".
+  MD035: false
+
+  # MD036 - no-emphasis-as-heading
+  # Existing docs use bold text (**Device/**) as de-facto headings.
+  MD036: false
+
+  # MD041 - first-line-heading
+  # VitePress pages may start with YAML frontmatter and have no top-level H1.
+  MD041: false
+
+  # MD058 - blanks-around-tables
+  # Tables are often glued to the surrounding text.
+  MD058: false
+
+globs:
+  - "**/*.md"
+
+ignores:
+  - "node_modules/**"
+  - ".vitepress/**"
+  - "package-lock.json"

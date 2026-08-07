@@ -16,7 +16,7 @@ cd ..
 umount /dev/ums
 ```
 :::tip
-Alternatively, an prepacked FAT image was provided here [bootpkg_image.zip](/InstallationGuides/EnterUMS/bookpkg_image.gz). You can decompress it on your computer and flash it into any unused partition via fastboot.
+Alternatively, a prepacked FAT image was provided here [bootpkg_image.gz](/InstallationGuides/EnterUMS/bootpkg_image.gz). You can decompress it on your computer and flash it into any unused partition via fastboot.
 :::
 
 Reboot your device into fastboot and execute the cmd below to try boot uefi. The phone will show a boot menu to enter mass storage mode after seconds.
@@ -59,7 +59,7 @@ su
 sh /sdcard/msc.sh
 ```
 
-or 
+or
 
 ```shell
 adb shell
@@ -83,7 +83,7 @@ Alternatively you can also download [Prebuilt MagiskBoot for windows](https://gi
 
 Use the tool unpack and repack boot/vendorboot image after unpacking executable file and add executing permission.
 
-Following commands as a example:
+Following commands as an example:
 ```shell
 adb push mass.cpio /sdcard/
 su
@@ -110,7 +110,7 @@ Please backup your boot/vendorboot before flash. Flash them back after using ums
 :::
 
 ## Enter UMS with initrd + mainline kernel
-You can also try boot mainline linux in uefi or via ABL and enable ums gadget mode in configfs. It's advanced so i'll only introduce here.
+You can also try boot mainline linux in uefi or via ABL and enable ums gadget mode in configfs. It's advanced so I'll only introduce it here.
 
 # End
 ::::

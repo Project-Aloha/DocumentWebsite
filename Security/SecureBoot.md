@@ -26,7 +26,7 @@ git clone https://github.com/microsoft/secureboot_objects/ --depth=1
 ```
 
 Replace `WOAMSMNILE-KEK.der` and `WOAMSMNILE-PK.der` located at:
-```
+```bash
 Platforms/AndromedaPkg/Include/Resources/SecureBoot/keystore/
 ```
 then edit `keystore/keystore.toml` at the same folder to reference them.
@@ -82,7 +82,7 @@ done
 ```
 
 Then, you should check this file and compare with:
-```
+```bash
 Platforms/AndromedaPkg/SecureBootKeys.dsc.inc
 ```
 If it looks fine, replace the file under `AndromedaPkg`.

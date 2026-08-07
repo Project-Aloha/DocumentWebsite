@@ -5,13 +5,13 @@ If you do not need it, set the two values to 0.
 
 ## Format
   - A config file should only contain the following contents.
-  ```
+  ```text
   StackBase=0x00000000
   StackSize=0x00000000
   RestartReasonAddress=0x00000000
   ```
   - The value after `=` must be hex number.
-  - Config file not in this format will cause unexceptional behavior.
+  - Config file not in this format will cause unexpected behavior.
 
 ## How to get these values
   - `StackBase`
@@ -30,4 +30,3 @@ If you do not need it, set the two values to 0.
     RestartReasonAddress=0x146bf65c
     ```
   
-    

@@ -18,7 +18,7 @@ cd ..
 umount /dev/ums
 ```
 :::tip
-另有预打包的 FAT 镜像可在此处获取 [bootpkg_image.zip](/InstallationGuides/EnterUMS/bookpkg_image.gz)。你可以在电脑上解压并通过 fastboot 写入任何未使用的分区。
+另有预打包的 FAT 镜像可在此处获取 [bootpkg_image.gz](/InstallationGuides/EnterUMS/bootpkg_image.gz)。你可以在电脑上解压并通过 fastboot 写入任何未使用的分区。
 :::
 
 将设备重启到 fastboot 模式，然后运行下面命令尝试通过 UEFI 启动。手机将在几秒后显示引导菜单，可以选择进入大容量存储模式：

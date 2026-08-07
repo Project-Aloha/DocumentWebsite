@@ -1,0 +1,19 @@
+# codespell configuration
+# Docs: https://github.com/codespell-project/codespell
+
+[codespell]
+# Files / paths to skip entirely
+skip = .git,node_modules,.vitepress,.github,package-lock.json,*.svg,*.png,*.jpg,*.jpeg,*.gif,*.webp,*.ico,*.woff,*.woff2,*.ttf,*.eot
+
+# Built-in dictionaries to check
+builtin = clear,rare,informal,usage
+
+# Words to ignore (technical terms, codenames, commands, etc.)
+# Entries are comma-separated, case-insensitive.
+# NOTE: keep on a single line - configparser treats "\" as an escape char,
+# so backslash line-continuation would corrupt the word list.
+ignore-words-list = abl,reserv,slave,te
+
+# Extra words that are always considered correct
+# (one word per line, lowercase)
+# ignore-words.txt is maintained next to this file

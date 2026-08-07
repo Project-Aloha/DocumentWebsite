@@ -1,7 +1,7 @@
 ## DualBoot Kernel Patcher
 > Based on [SurfaceDuoDualBootKernelImagePatcher](https://github.com/WOA-Project/SurfaceDuoDualBootKernelImagePatcher).  
 
-Kernel Patcher is a tool can inject shell codes into Linux kernel header, which can help use archive dual boot.  
+Kernel Patcher is a tool can inject shell codes into Linux kernel header, which can help achieve dual boot.  
 Can also do some more interesting things like replace dtb provided by abl with ours, select different linux kernel etc.
 
 ## DualBoot Boot Order
@@ -10,7 +10,7 @@ flowchart TD
   bl[Bootloader]
   subgraph patched_kernel[Patched Kernel]
     subgraph ori_kernel[Origin Linux Kernel]
-      subgraph shellcode[ShellCodeᅟᅠ]
+      subgraph shellcode[ShellCode]
         start_shellcode(Entry of Shell Code)
         check_memory{Check flags in memory}
         copy_fd[Copy UEFI FD to UEFI stack region]

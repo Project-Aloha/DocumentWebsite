@@ -6,19 +6,18 @@
   Here explains a generic way to install drivers from GIT repository.
 :::
 
-
 ## Preparation
 - Download Device Specific Driver Pack
 > Just click on archive with name like drivers.
-  <img src="/InstallationGuides/Resources/InstallDrivers/HowToDownload2.png" width=40%/>
+  <img src="/InstallationGuides/Resources/InstallDrivers/HowToDownload2.png" alt="How to download driver pack" width=40%/>
   
 | Vendor | Device     | CodeName | Drivers                                                                                     |
 |--------|------------|----------|---------------------------------------------------------------------------------------------|
-| XiaoMi |Mi 9        |cepheus   | [Driver Pack](https://github.com/qaz6750/XiaoMi9-Drivers/releases)                          |
-| XiaoMi |K20 Pro     |raphael   | [Driver Pack](https://github.com/rexnox/windows_xiaomi_platforms/releases)                  |
-| XiaoMi |Pad 5       |nabu      | [Driver Pack](https://github.com/remtrik-stuff/MiPad5-Windows-Releases/releases/latest)     |
-| XiaoMi |POCO X3 PRO |vayu      | [Driver Pack](https://github.com/WaLoVayu/POCOX3Pro-Windows-Releases/releases/latest)       |
-| XiaoMi |Note 9S     |miatoll   | [Driver Pack](https://github.com/woa-miatoll/Miatoll-Releases/releases/latest)              |
+| Xiaomi |Mi 9        |cepheus   | [Driver Pack](https://github.com/qaz6750/XiaoMi9-Drivers/releases)                          |
+| Xiaomi |K20 Pro     |raphael   | [Driver Pack](https://github.com/rexnox/windows_xiaomi_platforms/releases)                  |
+| Xiaomi |Pad 5       |nabu      | [Driver Pack](https://github.com/remtrik-stuff/MiPad5-Windows-Releases/releases/latest)     |
+| Xiaomi |POCO X3 PRO |vayu      | [Driver Pack](https://github.com/WaLoVayu/POCOX3Pro-Windows-Releases/releases/latest)       |
+| Xiaomi |Note 9S     |miatoll   | [Driver Pack](https://github.com/woa-miatoll/Miatoll-Releases/releases/latest)              |
 | LG     |G8          |alphaplus | [Driver Pack](https://github.com/n00b69/woa-alphaplus/releases/tag/Drivers)                 |
 | LG     |G8s         |betalm    | [Driver Pack](https://github.com/n00b69/woa-betalm/releases/tag/Drivers)                    |
 | LG     |G8x         |mh2lm     | [Driver Pack](https://github.com/n00b69/woa-mh2lm/releases/tag/Drivers)                     |
@@ -29,8 +28,6 @@
 | Samsung|Galaxy Fold |winner    | [Driver Pack](https://github.com/n00b69/woa-winner/releases/tag/Drivers)                    |
 --------------------------------------------------------------------------------------------------------------------------------
 
-
-
 ## Installation
 ### 1. Download and Extract the Package
 
@@ -40,11 +37,11 @@
 ### 2. Run offlineupdater.cmd (Administrator Required)
 
 - Open the extracted folder and locate the script:
-```
+```text
 offlineupdater.cmd
 ```
 - Right‑click it and choose:
-```
+```text
 Run as administrator
 ```
 > If an error shows up, run OfflineUpdaterFix.cmd instead
@@ -57,4 +54,3 @@ Run as administrator
 ## Done!
 
 Your device now has all required drivers installed and ready for use.
-

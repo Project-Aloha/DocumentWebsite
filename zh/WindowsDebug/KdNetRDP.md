@@ -34,7 +34,7 @@
   - 在手机进入系统后，点击Windbg窗口左上角`break`按钮，在窗口中间的命令行中输入`!process 0 1`并回车，等待输出完毕
   - 随便找一个Process，点击`Peb`后面的蓝色数据，Windbg会执行命令并输出一大堆内容。
   ![Process](/WindowsDebug/KdNetRDP/Process.png)
-  - 在输出的内容中找到`USERDOMAIN`， 复制后面的内容，一般为为`PHONE-XXXXX`或`DESKTOP-XXXX`
+  - 在输出的内容中找到`USERDOMAIN`， 复制后面的内容，一般为`PHONE-XXXXX`或`DESKTOP-XXXX`
   ![UserDomain](/WindowsDebug/KdNetRDP/UserDomain.png)
 :::tip
 如果点开一个Peb里面没有`USERDOMAIN`的话， 可以考虑换一个Process的`Peb`

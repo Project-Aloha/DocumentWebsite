@@ -4,7 +4,7 @@
 ## Sm8150
 | 供应商   | 设备型号    | 代号      | 教程链接                                                               |
 |---------|-------------|----------|------------------------------------------------------------------------|
-| Xiaomi  | K20 Pro     | Raphael  | [Github](https://github.com/graphiks/woa-raphael)                      |
-| Xiaomi  | Pad 5       | Nabu     | [Github](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5)       |
-| XiaoMi  | XiaoMi 9    | Cepheus  | [Github](https://github.com/woacepheus/Port-Windows-11-Xiaomi-Mi-9)    |
-| XiaoMi  | POCO X3 PRO | Vayu     | [Github](https://github.com/woa-vayu/Port-Windows-11-POCO-X3-PRO)      |
+| Xiaomi  | K20 Pro     | Raphael  | [GitHub](https://github.com/graphiks/woa-raphael)                      |
+| Xiaomi  | Pad 5       | Nabu     | [GitHub](https://github.com/erdilS/Port-Windows-11-Xiaomi-Pad-5)       |
+| Xiaomi  | Mi 9        | Cepheus  | [GitHub](https://github.com/woacepheus/Port-Windows-11-Xiaomi-Mi-9)    |
+| Xiaomi  | POCO X3 PRO | Vayu     | [GitHub](https://github.com/woa-vayu/Port-Windows-11-POCO-X3-PRO)      |

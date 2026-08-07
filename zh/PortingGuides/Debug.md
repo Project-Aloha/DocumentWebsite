@@ -1,7 +1,7 @@
 # 调试技巧
 ## 打开日志输出
 我们的UEFI目前提供4种获取UEFI日志的方式。
-```
+```text
   USE_SCREEN_FOR_SERIAL_OUTPUT    = 0
   USE_UART_GENI_FOR_SERIAL_OUTPUT = 0
   USE_UART_DM_FOR_SERIAL_OUTPUT   = 0
@@ -20,6 +20,6 @@
 
 ### USE_MEMORY_FOR_SERIAL_OUTPUT
 设置为 **1** 以将日志打印到pstore内存。当您的设备上有JTAG或启用EUD时，这很有用。输出区域在您的设备的 *Library/PlatformMemoryMapLib/PlatformMemoryMapLib.c* 中定义。该区域必须命名为 *PStore*，如下所示：
-```
+```text
 {"PStore", <StartAddress>, <Size>, AddMem, MEM_RES, SYS_MEM_CAP, Reserv, WRITE_THROUGH_XN},
 ```

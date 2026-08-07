@@ -11,14 +11,14 @@
 
 - 下载平台通用驱动包
   > 点击页面上的`Download`按钮下载即可.
-  <img src="/InstallationGuides/Resources/InstallDrivers/HowToDownload1.png" width=40%/>
+  <img src="/InstallationGuides/Resources/InstallDrivers/HowToDownload1.png" alt="HowToDownload1" width=40%/>
   - 对于搭载SD855的设备, 驱动库位于 [msmnile-Drivers](https://github.com/Project-Aloha/msmnile-Drivers)
   - 对于搭载SD720的设备, 驱动库位于 [Atoll-Drivers](https://github.com/Project-Aloha/Atoll-Drivers)
   - 其他平台以此类推.
 
 - 下载适用于单独设备的驱动包
   > 点击`Download`按钮下载即可.
-  <img src="/InstallationGuides/Resources/InstallDrivers/HowToDownload2.png" width=40%/>
+  <img src="/InstallationGuides/Resources/InstallDrivers/HowToDownload2.png" alt="HowToDownload2" width=40%/>
   - 对于小米平板五, 仓库在 [Nabu](https://github.com/Project-Aloha/Raphael).
   - 对于一加7T Pro, 仓库在 [Hotdog](https://github.com/Project-Aloha/Hotdog).
   - 对于其他设备, 可以参考[设备代号参考表](/ReferenceTables/DeviceCodenameReferenceTable.md)类推.
@@ -26,9 +26,8 @@
 - 手机进入大容量模式 [大容量模式](EnterUMS.md).
   > 通常来说，刚刚释放完Windows，你的手机应该仍处于大容量模式下.
 
-
 ## 安装
-  1. 解压刚刚下载的压缩包包，并确保路径正确.
+  1. 解压刚刚下载的压缩包，并确保路径正确.
       - 样例:
         + 将平台通用驱动解压在 `D:\WOA\<silicon-codename>-Drivers\`
         + 将DriverUpdater解压至 `D:\WOA\<silicon-codename>-Drivers\DriverUpdater.exe`
@@ -49,8 +48,6 @@
   
   4. 等待完成
       - 例如QRD778释放成功的图片:
-      <img src="/InstallationGuides/Resources/InstallDrivers/DriverUpdateSuccessfully.png"/>
+      <img src="/InstallationGuides/Resources/InstallDrivers/DriverUpdateSuccessfully.png" alt="驱动更新成功"/>
   
   5. 在电脑上弹出磁盘, 大功告成。
-
-

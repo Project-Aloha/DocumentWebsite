@@ -1,6 +1,5 @@
 # Windows Installation Guide
 
-
 :::warning
 This process can permanently brick your device if done incorrectly.
 Read every step carefully and DO NOT modify partitions unless explicitly instructed.
@@ -20,39 +19,39 @@ YOUR DEVICE MAY BECOME PERMANENTLY BRICKED.
 
 2. Start diskpart:
 
-```
+```bash
 diskpart
 ```
 
 3. Find the Windows partition:
 
-```
+```bash
 list volume
 ```
 
 - Replace $ with the actual volume number of WIN(DEVICE-NAME):
 
-```
+```bash
 select volume $
 assign letter F
 ```
 
 4. Find the ESP partition:
 
-```
+```bash
 list volume
 ```
 
 > Replace $ with the actual volume number of ESP(DEVICE-NAME):
 
-```
+```bash
 select volume $
 assign letter Y
 ```
 
 5. Exit diskpart:
 
-```
+```bash
 exit
 ```
 
@@ -60,27 +59,24 @@ exit
 
 ## Installing Windows
 
-You can download ISO of Windows from [uupdump](https://uupdump.net/). But you may need to run a script to generate ISO files. 
+You can download ISO of Windows from [uupdump](https://uupdump.net/). But you may need to run a script to generate ISO files.
 > Alternatively there is a [site](https://github.com/ArKT-7/woawin) where you can download premade ESD images. We do not guarantee its safety. Please decide which method by yourself.
-
-
 
 > Replace path\to\install.esd with your actual image path:
 
-```
+```bash
 dism /apply-image /ImageFile:path\to\install.esd /index:6 /ApplyDir:F:\
 ```
 
 > If you get Error 87, check the correct index:
 
-```
+```bash
 dism /get-imageinfo /ImageFile:path\to\install.esd
 ```
 
 > Then replace index:6 with the correct index of Windows
 
 ---
-
 
 ## Create Windows Bootloader
 
@@ -91,17 +87,16 @@ dism /get-imageinfo /ImageFile:path\to\install.esd
 
 - Create boot files:
 
-```
+```bash
 bcdboot F:\Windows /s Y: /f UEFI
 ```
 
 - Remove ESP drive letter:
 
-```
+```bash
 mountvol Y: /d
 ```
 
 > If this fails, ignore it. The phantom drive will disappear after reboot.
 
 ---
-

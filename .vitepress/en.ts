@@ -14,11 +14,11 @@ export const en = defineConfig({
       '/': { base: '', items: sidebarDocs() },
     },
     editLink: {
-      text: 'Edit this page on Github',
+      text: 'Edit this page on GitHub',
       pattern: 'https://github.com/Project-Aloha/DocumentWebsite/edit/main/:path'
     },
     footer: {
-      copyright: `Site CC BY-NC-SA 4.0 | CopyRight © 2022-${new Date().getFullYear()} Project-Aloha`
+      copyright: `Site CC BY-NC-SA 4.0 | Copyright © 2022-${new Date().getFullYear()} Project-Aloha`
     },
   }
 })

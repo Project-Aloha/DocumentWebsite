@@ -11,7 +11,7 @@ KdCom does not support rdp over it.
   - Debugging host installed [Windbg Preview](https://apps.microsoft.com/detail/9pgjgd53tn86)
 
 ## Setup BCD
-  - Mount ESP Partition on you phone with root permission in adb shell or termux.
+  - Mount ESP Partition on your phone with root permission in adb shell or termux.
     + Simply jump this step if you are using USB mass storage mode.
     ```bash
     # Execute on phone
@@ -68,9 +68,8 @@ KdCom does not support rdp over it.
     + Others keep default
   - Click `OK` button and windbg will start waiting for connection.
 
-
 ## Connect KdCom
-  - Ensuing DBG2 configuration is correct(No need worry because the address in dbg2 was fixed generally here).
+  - Ensure DBG2 configuration is correct(No need worry because the address in dbg2 was fixed generally here).
   - Reboot your phone, and connect it to computer with a usb cable.
   ```powershell
   # Execute on computer, boot uefi
