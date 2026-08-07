@@ -5,7 +5,7 @@
 Click [here](https://aloha.firmware.icu/) to jump to our document page.
 
 ## How to write and add guide here?
-### Repo Introduce 
+### Repo Introduce
 This repo uses ***VitePress*** to generate static pages.
 - Folders:
   + / -> English Guides
